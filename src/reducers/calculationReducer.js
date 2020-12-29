@@ -29,6 +29,7 @@ function reducer(state = initialState, action) {
         .slice(0, inputValues.length - 1)
         .join("");
 
+      // came up with this solution. not powerfull but 😶 ...
       const result = Number(eval(inputValuesExcludeEqual));
       const calculationHistory = `${inputValuesExcludeEqual}=${result}`;
       return {
