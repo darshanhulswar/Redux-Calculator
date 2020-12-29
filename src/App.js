@@ -52,6 +52,7 @@ function App() {
           <CalculatorScreen input={input} />
           <CalculatorResultScreen result={result} />
         </div>
+
         <div className="flex flex-row justify-evenly">
           <NumInputButton num={7} clickHandler={setInputHandler} />
           <NumInputButton num={8} clickHandler={setInputHandler} />
