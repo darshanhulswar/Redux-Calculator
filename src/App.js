@@ -1,115 +1,58 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import NumInputButton from "./components/NumInputButton";
+import OperationInputButton from "./components/OperationInputButton";
+import ClearButton from "./components/ClearButton";
+import CalculatorScreen from "./components/CalculatorScreen";
 
 function App() {
   const [input, setInput] = useState("");
 
+  function setInputHandler(e) {
+    if (e.target.innerText === "0") {
+      if (input !== "") {
+        setInput(`${input}${e.target.innerText}`);
+      } else return;
+    }
+    setInput(`${input}${e.target.innerText}`);
+  }
+
+  function clearInputHandler() {
+    setInput("");
+  }
+
   return (
-    <div>
+    <React.Fragment>
       <div
         className="calculator-wrapper bg-black mx-auto my-8 shadow-md"
         style={{ width: "300px", height: "470px" }}
       >
-        <div
-          style={{ minHeight: "80px" }}
-          className="py-6 px-3 font-bold text-2xl text-right bg-gray-200 overflow-x-auto"
-        >
-          {input}
+        <CalculatorScreen input={input} />
+        <div className="flex flex-row justify-evenly">
+          <NumInputButton num={7} clickHandler={setInputHandler} />
+          <NumInputButton num={8} clickHandler={setInputHandler} />
+          <NumInputButton num={9} clickHandler={setInputHandler} />
+          <OperationInputButton operation="+" />
         </div>
         <div className="flex flex-row justify-evenly">
-          <button
-            className="p-7 my-2 bg-white font-bold border-none focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            7
-          </button>
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            8
-          </button>
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            9
-          </button>
-          <button className="p-7 my-2 bg-yellow-500 font-bold focus:outline-none">
-            +
-          </button>
+          <NumInputButton num={4} clickHandler={setInputHandler} />
+          <NumInputButton num={5} clickHandler={setInputHandler} />
+          <NumInputButton num={6} clickHandler={setInputHandler} />
+          <OperationInputButton operation="-" />
         </div>
         <div className="flex flex-row justify-evenly">
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            4
-          </button>
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            5
-          </button>
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            6
-          </button>
-          <button className="p-7 my-2 bg-yellow-500 font-bold focus:outline-none">
-            -
-          </button>
+          <NumInputButton num={1} clickHandler={setInputHandler} />
+          <NumInputButton num={2} clickHandler={setInputHandler} />
+          <NumInputButton num={3} clickHandler={setInputHandler} />
+          <OperationInputButton operation="*" />
         </div>
         <div className="flex flex-row justify-evenly">
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            1
-          </button>
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            2
-          </button>
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => setInput(`${input}${e.target.innerText}`)}
-          >
-            3
-          </button>
-          <button className="p-7 my-2 bg-yellow-500 font-bold focus:outline-none">
-            *
-          </button>
-        </div>
-        <div className="flex flex-row justify-evenly">
-          <button
-            className="p-7 my-2 bg-green-200 font-bold focus:outline-none"
-            onClick={() => setInput("")}
-          >
-            C
-          </button>
-          <button
-            className="p-7 my-2 bg-white font-bold focus:outline-none"
-            onClick={(e) => {
-              if (input !== "") {
-                setInput(`${input}${e.target.innerText}`);
-              }
-            }}
-          >
-            0
-          </button>
-          <button className="p-7 my-2 bg-yellow-500 font-bold focus:outline-none">
-            =
-          </button>
-          <button className="p-7 my-2 bg-yellow-500 font-bold focus:outline-none">
-            /
-          </button>
+          <ClearButton clickHandler={clearInputHandler} />
+          <NumInputButton num={0} clickHandler={setInputHandler} />
+          <OperationInputButton operation="=" />
+          <OperationInputButton operation="/" />
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 
