@@ -2,7 +2,7 @@ function App() {
   return (
     <div>
       <div
-        className="calculator-wrapper bg-black mx-auto my-8"
+        className="calculator-wrapper bg-black mx-auto my-8 shadow-md"
         style={{ width: "300px", height: "470px" }}
       >
         <div className="py-6 px-3 font-bold text-2xl text-right bg-gray-200">
