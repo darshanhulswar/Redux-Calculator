@@ -49,6 +49,54 @@ function reducer(state = initialState, action) {
         calculationHistory: [],
       };
 
+    case actionTypes.SQUARE:
+      return {
+        ...state,
+        inputs: [],
+        result: action.result,
+        calculationHistory: [...state.calculationHistory, action.input],
+      };
+
+    case actionTypes.SQUARE_ROOT:
+      return {
+        ...state,
+        result: action.result,
+        calculationHistory: [
+          ...state.calculationHistory,
+          `${action.input} = ${action.result}`,
+        ],
+      };
+
+    case actionTypes.SIN:
+      return {
+        ...state,
+        result: action.result,
+        calculationHistory: [
+          ...state.calculationHistory,
+          `${action.input} = ${action.result}`,
+        ],
+      };
+
+    case actionTypes.COS:
+      return {
+        ...state,
+        result: action.result,
+        calculationHistory: [
+          ...state.calculationHistory,
+          `${action.input} = ${action.result}`,
+        ],
+      };
+
+    case actionTypes.TAN:
+      return {
+        ...state,
+        result: action.result,
+        calculationHistory: [
+          ...state.calculationHistory,
+          `${action.input} = ${action.result}`,
+        ],
+      };
+
     default:
       return state;
   }

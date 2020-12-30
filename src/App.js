@@ -6,7 +6,17 @@ import NumInputButton from "./components/NumInputButton";
 import OperationInputButton from "./components/OperationInputButton";
 import PreviousCalculation from "./components/PreviousCalculation";
 import ClearButton from "./components/ClearButton";
-import { setInputs, clearInputs, evaluate } from "./actions";
+import FunctionButton from "./components/FunctionButton";
+import {
+  setInputs,
+  clearInputs,
+  evaluate,
+  square,
+  sqrt,
+  sin,
+  cos,
+  tan,
+} from "./actions";
 
 function App() {
   const [input, setInput] = useState("");
@@ -46,11 +56,49 @@ function App() {
     <React.Fragment>
       <div
         className="calculator-wrapper bg-black mx-auto my-8 shadow-md"
-        style={{ width: "300px", height: "550px" }}
+        style={{ width: "300px", height: "100%" }}
       >
         <div className="border-2 border-black">
           <CalculatorScreen input={input} />
           <CalculatorResultScreen result={result} />
+        </div>
+        <div className="flex flex-row justify-evenly">
+          <FunctionButton
+            functionSignature="x^2"
+            clickHandler={() => {
+              dispatch(square(Number(input)));
+              setInput("");
+            }}
+          />
+          <FunctionButton
+            functionSignature="√x"
+            clickHandler={() => {
+              dispatch(sqrt(Number(input)));
+              setInput("");
+            }}
+          />
+          <FunctionButton
+            functionSignature="sin(x)"
+            clickHandler={() => {
+              dispatch(sin(Number(input)));
+              setInput("");
+            }}
+          />
+          <FunctionButton
+            functionSignature="cos(x)"
+            clickHandler={() => {
+              dispatch(cos(Number(input)));
+              setInput("");
+            }}
+          />
+
+          <FunctionButton
+            functionSignature="tan(x)"
+            clickHandler={() => {
+              dispatch(tan(Number(input)));
+              setInput("");
+            }}
+          />
         </div>
 
         <div className="flex flex-row justify-evenly">
