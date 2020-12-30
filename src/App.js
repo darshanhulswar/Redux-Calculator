@@ -55,8 +55,8 @@ function App() {
   return (
     <React.Fragment>
       <div
-        className="calculator-wrapper bg-black mx-auto my-8 shadow-md"
-        style={{ width: "300px", height: "100%" }}
+        className="calculator-wrapper bg-black mx-auto my-8 shadow-md h-full"
+        style={{ width: "300px" }}
       >
         <div className="border-2 border-black">
           <CalculatorScreen input={input} />
