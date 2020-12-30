@@ -3,7 +3,7 @@ import React from "react";
 function ClearButton(props) {
   return (
     <button
-      className="p-7 my-2 bg-green-200 font-bold focus:outline-none"
+      className="p-7 my-2 bg-green-200 font-bold focus:outline-none active:bg-green-300"
       onClick={props.clickHandler}
     >
       C
