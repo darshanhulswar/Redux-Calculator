@@ -22,42 +22,46 @@ function evaluate() {
 function square(value) {
   return {
     type: actionTypes.SQUARE,
-    value: value,
+    result: value * value,
+    input: `${value}^${2} = ${value * value}`,
   };
 }
 
 function abs(value) {
   return {
     type: actionTypes.ABSOLUTE,
-    value: value,
   };
 }
 
 function sqrt(value) {
   return {
     type: actionTypes.SQUARE_ROOT,
-    value: value,
+    result: Math.sqrt(value),
+    input: `√${value}`,
   };
 }
 
 function sin(value) {
   return {
     type: actionTypes.SIN,
-    value: value,
+    result: Math.sin(value),
+    input: `sin(${value}) = ${Math.sin(value)}`,
   };
 }
 
 function cos(value) {
   return {
     type: actionTypes.COS,
-    value: value,
+    result: Math.cos(value),
+    input: `cos(${value}) = ${Math.cos(value)}`,
   };
 }
 
 function tan(value) {
   return {
     type: actionTypes.TAN,
-    value: value,
+    result: Math.tan(value),
+    input: `tan(${value}) = ${Math.tan(value)}`,
   };
 }
 
